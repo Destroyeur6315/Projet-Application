@@ -1,0 +1,123 @@
+{
+  "version": 3,
+  "targets": {
+    "net5.0-windows7.0": {
+      "Modele/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v5.0",
+        "compile": {
+          "bin/placeholder/Modele.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Modele.dll": {}
+        }
+      },
+      "Persistance/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v5.0",
+        "dependencies": {
+          "Modele": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/Persistance.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Persistance.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "Modele/1.0.0": {
+      "type": "project",
+      "path": "../Modele/Modele.csproj",
+      "msbuildProject": "../Modele/Modele.csproj"
+    },
+    "Persistance/1.0.0": {
+      "type": "project",
+      "path": "../Persistance/Persistance.csproj",
+      "msbuildProject": "../Persistance/Persistance.csproj"
+    }
+  },
+  "projectFileDependencyGroups": {
+    "net5.0-windows7.0": [
+      "Modele >= 1.0.0",
+      "Persistance >= 1.0.0"
+    ]
+  },
+  "packageFolders": {
+    "C:\\Users\\rofillot\\.nuget\\packages\\": {},
+    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {},
+    "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\": {}
+  },
+  "project": {
+    "version": "1.0.0",
+    "restore": {
+      "projectUniqueName": "U:\\Documents\\CodeProjet\\Projet-IHM\\Projet-IHM\\Appli.csproj",
+      "projectName": "Appli",
+      "projectPath": "U:\\Documents\\CodeProjet\\Projet-IHM\\Projet-IHM\\Appli.csproj",
+      "packagesPath": "C:\\Users\\rofillot\\.nuget\\packages\\",
+      "outputPath": "U:\\Documents\\CodeProjet\\Projet-IHM\\Projet-IHM\\obj\\",
+      "projectStyle": "PackageReference",
+      "fallbackFolders": [
+        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
+        "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\"
+      ],
+      "configFilePaths": [
+        "C:\\Users\\rofillot\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+      ],
+      "originalTargetFrameworks": [
+        "net5.0-windows7.0"
+      ],
+      "sources": {
+        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+        "https://api.nuget.org/v3/index.json": {}
+      },
+      "frameworks": {
+        "net5.0-windows7.0": {
+          "targetAlias": "net5.0-windows",
+          "projectReferences": {
+            "U:\\Documents\\CodeProjet\\Projet-IHM\\Modele\\Modele.csproj": {
+              "projectPath": "U:\\Documents\\CodeProjet\\Projet-IHM\\Modele\\Modele.csproj"
+            },
+            "U:\\Documents\\CodeProjet\\Projet-IHM\\Persistance\\Persistance.csproj": {
+              "projectPath": "U:\\Documents\\CodeProjet\\Projet-IHM\\Persistance\\Persistance.csproj"
+            }
+          }
+        }
+      },
+      "warningProperties": {
+        "warnAsError": [
+          "NU1605"
+        ]
+      }
+    },
+    "frameworks": {
+      "net5.0-windows7.0": {
+        "targetAlias": "net5.0-windows",
+        "imports": [
+          "net461",
+          "net462",
+          "net47",
+          "net471",
+          "net472",
+          "net48"
+        ],
+        "assetTargetFallback": true,
+        "warn": true,
+        "frameworkReferences": {
+          "Microsoft.NETCore.App": {
+            "privateAssets": "all"
+          },
+          "Microsoft.WindowsDesktop.App.WPF": {
+            "privateAssets": "none"
+          }
+        },
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.408\\RuntimeIdentifierGraph.json"
+      }
+    }
+  }
+}

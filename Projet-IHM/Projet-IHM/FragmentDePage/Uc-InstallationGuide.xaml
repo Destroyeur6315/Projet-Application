@@ -1,0 +1,36 @@
+﻿<UserControl x:Class="Projet_IHM.Uc_InstallationGuide"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Projet_IHM"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+
+
+
+    <StackPanel HorizontalAlignment="Center" Margin="50,0,0,0">
+
+
+        <Border  Background="{StaticResource ContainerBackground}" BorderBrush="{StaticResource DefaultBleu}" BorderThickness="0,0,5,0" MaxWidth="1200" MaxHeight="30" HorizontalAlignment="Left" Margin="10" VerticalAlignment="Top" >
+            <Border.RenderTransform>
+                <SkewTransform AngleX="20"/>
+            </Border.RenderTransform>
+
+            <TextBlock x:Name="NomEtape" Text=""  FontSize="20" Margin="10,0,10,0" TextWrapping="Wrap" Foreground="#FFFFFF"  >
+                
+            <TextBlock.RenderTransform>
+                <TransformGroup>
+                    <SkewTransform AngleX="-20"/>
+                </TransformGroup>
+            </TextBlock.RenderTransform>
+            </TextBlock>
+        </Border>
+
+        <Border MinHeight="500" Margin="10,10,10,10"  HorizontalAlignment="Left" CornerRadius="8" BorderBrush="{StaticResource ContainerBorder}" BorderThickness="1" Background="{StaticResource ContainerBackground}">
+
+            <TextBlock x:Name="TexteEtape" Text="" FontSize="16 " TextWrapping="Wrap" Margin="30" MaxWidth="400" VerticalAlignment="Top" TextAlignment="Justify" Foreground="White"/>
+    </Border>
+    </StackPanel>
+
+</UserControl>

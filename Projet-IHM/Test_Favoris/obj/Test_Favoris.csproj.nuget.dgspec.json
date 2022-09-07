@@ -1,0 +1,120 @@
+{
+  "format": 1,
+  "restore": {
+    "D:\\Lycée\\BUT-1er_Année\\Projet-IHM\\CodeProjet\\Projet-IHM\\Test_Favoris\\Test_Favoris.csproj": {}
+  },
+  "projects": {
+    "D:\\Lycée\\BUT-1er_Année\\Projet-IHM\\CodeProjet\\Projet-IHM\\Modele\\Modele.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "D:\\Lycée\\BUT-1er_Année\\Projet-IHM\\CodeProjet\\Projet-IHM\\Modele\\Modele.csproj",
+        "projectName": "Modele",
+        "projectPath": "D:\\Lycée\\BUT-1er_Année\\Projet-IHM\\CodeProjet\\Projet-IHM\\Modele\\Modele.csproj",
+        "packagesPath": "C:\\Users\\romai\\.nuget\\packages\\",
+        "outputPath": "D:\\Lycée\\BUT-1er_Année\\Projet-IHM\\CodeProjet\\Projet-IHM\\Modele\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\romai\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net5.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net5.0": {
+            "targetAlias": "net5.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net5.0": {
+          "targetAlias": "net5.0",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.202\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "D:\\Lycée\\BUT-1er_Année\\Projet-IHM\\CodeProjet\\Projet-IHM\\Test_Favoris\\Test_Favoris.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "D:\\Lycée\\BUT-1er_Année\\Projet-IHM\\CodeProjet\\Projet-IHM\\Test_Favoris\\Test_Favoris.csproj",
+        "projectName": "Test_Favoris",
+        "projectPath": "D:\\Lycée\\BUT-1er_Année\\Projet-IHM\\CodeProjet\\Projet-IHM\\Test_Favoris\\Test_Favoris.csproj",
+        "packagesPath": "C:\\Users\\romai\\.nuget\\packages\\",
+        "outputPath": "D:\\Lycée\\BUT-1er_Année\\Projet-IHM\\CodeProjet\\Projet-IHM\\Test_Favoris\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\romai\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net5.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net5.0": {
+            "targetAlias": "net5.0",
+            "projectReferences": {
+              "D:\\Lycée\\BUT-1er_Année\\Projet-IHM\\CodeProjet\\Projet-IHM\\Modele\\Modele.csproj": {
+                "projectPath": "D:\\Lycée\\BUT-1er_Année\\Projet-IHM\\CodeProjet\\Projet-IHM\\Modele\\Modele.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net5.0": {
+          "targetAlias": "net5.0",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.202\\RuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}

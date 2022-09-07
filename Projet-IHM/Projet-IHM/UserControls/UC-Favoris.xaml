@@ -1,0 +1,65 @@
+﻿<UserControl x:Class="Projet_IHM.UserControls.UC_Favoris"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Projet_IHM.UserControls"
+             mc:Ignorable="d"
+             x:Name="root"
+             d:DesignHeight="50" d:DesignWidth="350">
+   
+
+    <WrapPanel>
+
+        <TextBlock Text="{Binding WishlistFav.Nom, ElementName=root}" 
+                   FontSize="20" 
+                   Foreground="White" 
+                   VerticalAlignment="Center" 
+                   HorizontalAlignment="Center" 
+                   MinWidth="150" 
+                   FontFamily="French Script MT"
+                   TextWrapping="WrapWithOverflow"/>
+
+
+
+        <Button Width="30"
+                    Height="30" 
+                    Click="modifierListe_Click"
+                    Style="{StaticResource BoutonWithoutHover}"
+                    MouseEnter="Button_MouseEnter_Modif"
+                    MouseLeave="Button_MouseLeave_Modif"
+                    Margin="10,0,0,0">
+
+                <Image  x:Name="ImageModif"
+                        Source="../Img/ImgLogo/ModifBlanc.png"/>
+            </Button>
+
+
+
+        <Button Width="30"
+                Height="30" 
+                Click="modifierNom_Click"
+                Style="{StaticResource BoutonWithoutHover}"
+                MouseEnter="Button_MouseEnter_Rename"
+                MouseLeave="Button_MouseLeave_Rename"
+                Margin="10,0,0,0">
+
+            <Image  x:Name="ImageRename"
+                    Source="../Img/ImgLogo/CrayonBlanc.png"/>
+        </Button>
+
+        
+        <Button Width="30"
+                Height="30" 
+                Click="suppFavoris_Click"
+                Style="{StaticResource BoutonWithoutHover}"
+                MouseEnter="Button_MouseEnter_Supp"
+                MouseLeave="Button_MouseLeave_Supp"
+                Margin="10,0,0,0">
+
+            <Image x:Name="ImageSupp" 
+                   Source="../Img/ImgLogo/CroixBlanc.png"/>
+        </Button>
+    </WrapPanel>
+    
+</UserControl>

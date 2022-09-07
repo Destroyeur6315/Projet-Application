@@ -1,0 +1,110 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net5.0-windows</TargetFramework>
+    <RootNamespace>Projet_IHM</RootNamespace>
+    <UseWPF>true</UseWPF>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <OutputPath>../AppliBin</OutputPath>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Img\Default.png" />
+    <None Remove="Img\ImginstallationGuide\menu.png" />
+    <None Remove="Img\ImgLogo\CrayonBlanc.png" />
+    <None Remove="Img\ImgLogo\CrayonBleu.png" />
+    <None Remove="Img\ImgLogo\CroixBlanc.png" />
+    <None Remove="Img\ImgLogo\CroixBleue.png" />
+    <None Remove="Img\ImgLogo\ModifBlanc.png" />
+    <None Remove="Img\ImgLogo\ModifBleu.png" />
+    <None Remove="Img\ImgMainWindow\Alimentation.png" />
+    <None Remove="Img\ImgMainWindow\Boitier.png" />
+    <None Remove="Img\ImgMainWindow\CarteGraphique.jpg" />
+    <None Remove="Img\ImgMainWindow\CarteGraphique.png" />
+    <None Remove="Img\ImgMainWindow\CarteMere.png" />
+    <None Remove="Img\ImgMainWindow\CoeurJaunee.png" />
+    <None Remove="Img\ImgMainWindow\DisqueDur.png" />
+    <None Remove="Img\ImgMainWindow\Gaming.jpg" />
+    <None Remove="Img\ImgMainWindow\ImgMenu.png" />
+    <None Remove="Img\ImgMainWindow\Optionnels.png" />
+    <None Remove="Img\ImgMainWindow\Processeur.png" />
+    <None Remove="Img\ImgMainWindow\Ram.png" />
+    <None Remove="Img\ImgMainWindow\Ventirad.png" />
+    <None Remove="Img\ImgProducts\IconeRecherche.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Modele\Modele.csproj" />
+    <ProjectReference Include="..\Persistance\Persistance.csproj" />
+    <Resource Include="Img\Default.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Img\ImginstallationGuide\menu.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Img\ImgLogo\CrayonBlanc.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Img\ImgLogo\CrayonBleu.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Img\ImgLogo\CroixBlanc.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Img\ImgLogo\CroixBleue.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Img\ImgLogo\ModifBlanc.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Img\ImgLogo\ModifBleu.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Img\ImgMainWindow\Alimentation.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Img\ImgMainWindow\Boitier.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Img\ImgMainWindow\CarteGraphique.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Img\ImgMainWindow\CarteGraphique.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Img\ImgMainWindow\CoeurJaunee.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Img\ImgMainWindow\DisqueDur.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Img\ImgMainWindow\Gaming.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Img\ImgMainWindow\ImgMenu.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Img\ImgMainWindow\CarteMere.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Img\ImgMainWindow\Optionnels.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Img\ImgMainWindow\Processeur.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Img\ImgMainWindow\Ram.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Img\ImgMainWindow\Ventirad.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Img\ImgProducts\IconeRecherche.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+  </ItemGroup>
+
+</Project>

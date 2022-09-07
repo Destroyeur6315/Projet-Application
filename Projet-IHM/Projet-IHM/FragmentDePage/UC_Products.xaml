@@ -1,0 +1,355 @@
+﻿<UserControl x:Class="Projet_IHM.UC_Products"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:local="clr-namespace:Projet_IHM"
+             mc:Ignorable="d" 
+             d:DesignHeight="1080" d:DesignWidth="1920">
+
+    <UserControl.Resources>
+
+        <!--Style et template pour une dataGrid-->
+        <Style TargetType="{x:Type DataGrid}">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type DataGrid}">
+                        <Border x:Name="border">
+                            <ScrollViewer x:Name="DG_ScrollViewer"
+                                    Focusable="false"
+                                    Background="Black"
+                                    FontSize="15">
+                                <ScrollViewer.Template>
+                                    <ControlTemplate TargetType="{x:Type ScrollViewer}">
+                                        <Grid>
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="Auto" />
+                                                <ColumnDefinition Width="*" />
+                                                <ColumnDefinition Width="Auto" />
+                                            </Grid.ColumnDefinitions>
+                                            <Grid.RowDefinitions>
+                                                <RowDefinition Height="Auto" />
+                                                <RowDefinition Height="*" />
+                                                <RowDefinition Height="Auto" />
+                                            </Grid.RowDefinitions>
+
+                                            <ScrollContentPresenter x:Name="PART_ScrollContentPresenter"
+                                                  Grid.ColumnSpan="2"
+                                                  Grid.Row="1"
+                                                  CanContentScroll="{TemplateBinding CanContentScroll}" />
+
+                                            <Grid Grid.Column="1"
+                                                                         Grid.Row="2">
+                                                <Grid.ColumnDefinitions>
+                                                    <ColumnDefinition  />
+                                                    <ColumnDefinition Width="*" />
+                                                </Grid.ColumnDefinitions>
+                                            </Grid>
+                                        </Grid>
+                                    </ControlTemplate>
+                                </ScrollViewer.Template>
+                                <ItemsPresenter SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" />
+                            </ScrollViewer>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+
+        <!--Style et template pour une dataGridRow-->
+        <Style TargetType="{x:Type DataGridRow}">
+          
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type DataGridRow}">
+                        <Border x:Name="DGR_Border"
+                            BorderBrush="{TemplateBinding BorderBrush}"
+                            BorderThickness="{TemplateBinding BorderThickness}"
+                            SnapsToDevicePixels="True">
+                           
+                            <SelectiveScrollingGrid>
+                                <SelectiveScrollingGrid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto" />
+                                    <ColumnDefinition Width="*" />
+                                </SelectiveScrollingGrid.ColumnDefinitions>
+                                <SelectiveScrollingGrid.RowDefinitions>
+                                    <RowDefinition Height="*" />
+                                    <RowDefinition Height="Auto" />
+                                </SelectiveScrollingGrid.RowDefinitions>
+                                <DataGridCellsPresenter Grid.Column="1"
+                                    ItemsPanel="{TemplateBinding ItemsPanel}"
+                                    SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" />
+                                <DataGridDetailsPresenter Grid.Column="1"
+                                      Grid.Row="1"
+                                      Visibility="{TemplateBinding DetailsVisibility}"
+                                      SelectiveScrollingGrid.SelectiveScrollingOrientation=
+                                    "{Binding AreRowDetailsFrozen, 
+                                    ConverterParameter={x:Static SelectiveScrollingOrientation.Vertical},
+                                    Converter={x:Static DataGrid.RowDetailsScrollingConverter}, 
+                                    RelativeSource={RelativeSource AncestorType={x:Type DataGrid}}}"/>  
+                            </SelectiveScrollingGrid>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+
+        <!--Style et template pour une cellule dans une dataGrid-->
+        <Style TargetType="{x:Type DataGridCell}">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type DataGridCell}">
+                        <Border x:Name="border"
+                            BorderBrush="{StaticResource ContainerBorder}"
+                            BorderThickness="1"
+                            Background="{StaticResource ContainerBackground}"
+                            SnapsToDevicePixels="True" Padding="10" MinWidth="275">
+                            
+                            <ContentPresenter SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" HorizontalAlignment="Center"/>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+
+
+        <!--Style et template pour une textBox-->
+        <Style TargetType="TextBox" x:Key="DefaultTextBox">
+                <Style.Resources>
+                    <VisualBrush x:Key="BackgroundText" AlignmentX="Left" AlignmentY="Center" Stretch="None">
+                        <VisualBrush.Visual>
+                            <Label Content="Recherche ..." Foreground="LightGray" />
+                        </VisualBrush.Visual>
+                    </VisualBrush>
+                </Style.Resources>
+                <Style.Triggers>
+                    <Trigger Property="Text" Value="">
+                    <Setter Property="Background" Value="{StaticResource BackgroundText}" />
+                    </Trigger>
+                    <Trigger Property="IsKeyboardFocused" Value="True">
+                        <Setter Property="Background" Value="White" />
+                    </Trigger>
+                </Style.Triggers>
+            </Style>
+
+    </UserControl.Resources>
+
+
+
+
+    <DockPanel Background="#FF121212">
+
+        <!-- Menu de droite qui contient la liste des produits ainsi qu'une recherche -->
+        <Border DockPanel.Dock="Right" 
+                MinWidth="300" 
+                Background="#FF1A1F29" 
+                Margin="15" 
+                CornerRadius="7" 
+                BorderThickness="1" 
+                BorderBrush="{StaticResource ContainerBorder}">
+            
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition />
+                </Grid.ColumnDefinitions>
+
+                <Border Height="75" 
+                        Margin="0,0,0,20" 
+                        CornerRadius="7,7,0,0" 
+                        BorderThickness="1" 
+                        BorderBrush="{StaticResource ContainerBorder}" 
+                        Background="{StaticResource ContainerBorder}" 
+                        Grid.Row="0">
+                    
+                    <TextBlock Grid.Column="0" 
+                               Text="Les Produits" 
+                               Width="Auto" 
+                               FontSize="35" 
+                               Foreground="#FFCDC8C8"
+                               HorizontalAlignment="Center" 
+                               VerticalAlignment="Center"/>
+                </Border>
+                
+                <!-- Entrée utilisateur pour la recherche -->
+                <WrapPanel Grid.Row="1">
+                    <TextBox  x:Name="Recherche" 
+                              MinWidth="280"  
+                              FontSize="15" 
+                              Height="30" 
+                              VerticalAlignment="Center" 
+                              MaxLength="30" 
+                              Margin="10,0,0,0" 
+                              KeyUp="TextBox_KeyUp"
+                              Style="{StaticResource DefaultTextBox}"/>
+
+                    <Image Source="..\Img\ImgProducts\IconeRecherche.png" Width="30" Margin="5"/>
+                </WrapPanel>
+
+                <!-- Affichage des composants -->
+                <WrapPanel  Grid.Row="3" Margin="10,60,10,10">
+                    
+                    <ListBox ItemsSource="{Binding CompoAffiche}" 
+                                 SelectedItem="{Binding ComposantSelectionne}" 
+                                 MinWidth="300"
+                                 MaxHeight="600"
+                                 Background="Transparent" 
+                                 BorderThickness="0" 
+                                 SelectedIndex="0" 
+                                 ScrollViewer.HorizontalScrollBarVisibility="Auto"
+                                 Margin="0,0,10,0">
+
+
+                        <ListBox.ItemContainerStyle>
+                                <Style TargetType="ListBoxItem">
+                                    <Style.Triggers>
+                                        <Trigger Property="IsSelected" Value="True" >
+                                            <Setter Property="FontWeight" Value="Bold" />
+                                    </Trigger>
+                                    </Style.Triggers>
+                                    <Style.Resources>
+                                        <SolidColorBrush x:Key="{x:Static SystemColors.HighlightBrushKey}" Color="Transparent"/>
+                                    </Style.Resources>
+                                </Style>
+                                
+                            </ListBox.ItemContainerStyle>
+                            <ListBox.ItemTemplate>
+                                <DataTemplate>
+                                    <local:UC_Produit HorizontalAlignment="Center" Margin="0,0,10,0"/>
+                                </DataTemplate>
+                            </ListBox.ItemTemplate>
+                        </ListBox>
+                </WrapPanel>
+            </Grid>
+        </Border>
+
+        
+        
+        <!-- Partie principale de l'écran : caractéristiques du produit + image -->
+        <Border  BorderThickness="1"
+                 Margin="20" 
+                 CornerRadius="7" 
+                 BorderBrush="{StaticResource ContainerBorder}" 
+                 Background="{StaticResource BackgroundColour}">
+            
+            <ScrollViewer  HorizontalAlignment="Center" 
+                           Margin="0,15,0,0" 
+                           VerticalScrollBarVisibility="Auto" >
+
+                <WrapPanel Grid.Row="0"
+                           Margin="10,10,50,10"  
+                           x:Name="MainTab" >
+
+                    <Image Source="{Binding  ComposantSelectionne.ImagePath, Converter={StaticResource StringtoImage}}" MaxWidth="400" Margin="100,0,90,0"/>
+
+                    <!-- Tableau des caractéristiques physiques -->
+                    <Border BorderBrush="Black" BorderThickness="1" Margin="20,0,0,0" MinWidth="550">
+
+                        <Grid Background="{StaticResource ContainerBackground}">
+
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="1*"/>
+                                <ColumnDefinition Width="3*"/>
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                            </Grid.RowDefinitions>
+
+                            <Label Style="{StaticResource cellule}" Content="Marque" Grid.Row="0" FontSize="15"/>
+                            <Label Style="{StaticResource cellule}" Content="Designation" Grid.Row="1" FontSize="15"/>
+                            <Label Style="{StaticResource cellule}" Content="Prix" Grid.Row="2" FontSize="15"/>
+                            <Label Style="{StaticResource cellule}" Content="Modele" Grid.Row="3" FontSize="15"/>
+                            <Label Style="{StaticResource cellule}" Content="Date sortie" Grid.Row="4" FontSize="15"/>
+                            <Label Style="{StaticResource cellule}" Content="Site achat" Grid.Row="5" FontSize="15"/>
+
+                            <Label Style="{StaticResource cellule}" Content="{Binding ComposantSelectionne.Marque}" Grid.Row="0" Grid.Column="1" FontSize="15"/>
+                            <Label Style="{StaticResource cellule}" Content="{Binding ComposantSelectionne.Designation}" Grid.Row="1" Grid.Column="1" FontSize="15"/>
+                            <Label Style="{StaticResource cellule}" Content="{Binding ComposantSelectionne.Prix}" Grid.Row="2" Grid.Column="1" FontSize="15"/>
+                            <Label Style="{StaticResource cellule}" Content="{Binding ComposantSelectionne.Modele}" Grid.Row="3" Grid.Column="1" FontSize="15"/>
+                            <Label Style="{StaticResource cellule}" Content="{Binding ComposantSelectionne.DateCreation}" Grid.Row="4" Grid.Column="1" FontSize="15"/>
+                            <Label Style="{StaticResource cellule}" Content="{Binding ComposantSelectionne.SiteAchat}" Grid.Row="5" Grid.Column="1" FontSize="15"/>
+                        </Grid>
+                    </Border>
+
+
+
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                        </Grid.RowDefinitions>
+
+                        <TextBlock Text="Caracteristiques : " FontSize="50" Grid.Row="0" Margin="20" Foreground="White" x:Name="CaracText"/>
+
+                        <WrapPanel Grid.Row="1">
+                            
+                            <!-- Tableau des caractéristiques techniques-->
+                            <DataGrid HorizontalAlignment="Center"
+                                      VerticalAlignment="Stretch"
+                                      AutoGenerateColumns="False"
+                                      Foreground="White"
+                                      IsReadOnly="True"
+                                      IsHitTestVisible="False"
+                                      Margin="20"
+                                      ItemsSource="{Binding ComposantSelectionne.LesCaracteristiquesPhysiques}">
+
+                                <DataGrid.Columns>
+                                    <DataGridTextColumn Header="Key" Binding="{Binding Key}"/>
+                                    <DataGridTextColumn Header="Value" Binding="{Binding Value}" />
+                                </DataGrid.Columns>
+                            </DataGrid>
+
+                            <!-- Deuxième tableau des caractéristiques techniques-->
+                            <DataGrid HorizontalAlignment="Center"
+                                        VerticalAlignment="Stretch"
+                                        AutoGenerateColumns="False"
+                                        Foreground="White"
+                                        IsReadOnly="True"
+                                        IsHitTestVisible="False"
+                                        Margin="20"
+                                        ItemsSource="{Binding ComposantSelectionne.LesCaracteristiques}">
+
+                                <DataGrid.Columns>
+                                    <DataGridTextColumn Header="Key" Binding="{Binding Key}"/>
+                                    <DataGridTextColumn Header="Value" Binding="{Binding Value}" />
+                                </DataGrid.Columns>
+                            </DataGrid>
+                        </WrapPanel>
+
+                        
+                        <Grid Grid.Row="2" HorizontalAlignment="Center">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition/>
+                                <ColumnDefinition/>
+                            </Grid.ColumnDefinitions>
+
+                            <Button x:Name="Ajouter" Grid.Column="0"  Margin="20" MinHeight="50" MaxWidth="100" Content="Ajouter" Style="{StaticResource Bouton}" Click="Button_Click"/>
+                            <Button x:Name="Quitter" Grid.Column="1"  MinHeight="50" MaxWidth="100" Content="Quitter" Style="{StaticResource Bouton}" Click="Quitter_Click"/>
+                        </Grid>
+
+
+                    </Grid>
+                    
+                </WrapPanel>
+
+            </ScrollViewer>
+            
+        </Border>
+    </DockPanel>
+</UserControl>

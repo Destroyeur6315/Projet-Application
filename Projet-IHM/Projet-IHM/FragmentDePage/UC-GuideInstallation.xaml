@@ -1,0 +1,63 @@
+﻿<UserControl x:Class="Projet_IHM.FragmentDePage.UC_GuideInstallation"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Projet_IHM"
+             mc:Ignorable="d" 
+             d:DesignHeight="1080" d:DesignWidth="1920">
+
+    <UserControl.Resources>
+        <Style x:Key="BoutonBarreAvancement" TargetType="Button">
+            <Setter Property="Width" Value="10"/>
+            <Setter Property="Height" Value="10"/>
+            <Setter Property="Margin" Value="12,0,12,20"/>
+        </Style>
+
+
+        <Style x:Key="Bouton" TargetType="Button" >
+            <Style.Resources>
+                <Style TargetType="Border">
+                    <Setter Property="CornerRadius" Value="15"/>
+                </Style>
+            </Style.Resources>
+
+            <Setter Property="Width" Value="100"/>
+            <Setter Property="Height" Value="30"/>
+            <Setter Property="Background" Value="#0C131F"/>
+            <Setter Property="BorderThickness" Value="2"/>
+            <Setter Property="BorderBrush" Value="#FF8DE8FE"/>
+            <Setter Property="FontSize" Value="15"/>
+            <Setter Property="Foreground" Value="#FF8DE8FE"/>
+        </Style>
+
+    </UserControl.Resources>
+
+
+    <DockPanel>
+        <!-- Corps de Page-->
+        <ScrollViewer  Background="{StaticResource BackgroundColour}">
+
+            <DockPanel Margin="80" HorizontalAlignment="Center">
+
+                <WrapPanel MaxWidth="1100">
+                    <local:Uc_InstallationGuide x:Name="Etape1"/>
+                    <local:Uc_InstallationGuide x:Name="Etape2"/>
+                    <local:Uc_InstallationGuide  x:Name="Etape3"/>
+                    <local:Uc_InstallationGuide  x:Name="Etape4"/>
+                    <local:Uc_InstallationGuide  x:Name="Etape5"/>
+                    <local:Uc_InstallationGuide  x:Name="Etape6"/>
+                    <local:Uc_InstallationGuide  x:Name="Etape7"/>
+                    <local:Uc_InstallationGuide x:Name="Etape8"/>
+                    <local:Uc_InstallationGuide  x:Name="Etape9"/>
+                    <local:Uc_InstallationGuide  x:Name="Etape10"/>
+                    <local:Uc_InstallationGuide  x:Name="Etape11"/>
+                    <local:Uc_InstallationGuide  x:Name="Etape12"/>
+                </WrapPanel>
+
+            </DockPanel>
+
+        </ScrollViewer>
+
+    </DockPanel>
+</UserControl>
